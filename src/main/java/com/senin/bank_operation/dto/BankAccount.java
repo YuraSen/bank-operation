@@ -18,9 +18,9 @@ public class BankAccount {
 
     private Double balanceAccount;
 
-    private String firstBankAccount;
+    private Transaction firstBankAccount;
 
-    private String secondBankAccount;
+    private Transaction secondBankAccount;
 
     private List<Transaction> transactionList;
 }

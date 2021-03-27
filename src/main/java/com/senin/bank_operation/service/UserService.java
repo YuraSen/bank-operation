@@ -1,17 +1,17 @@
 package com.senin.bank_operation.service;
 
-import com.senin.bank_operation.dto.User;
+import com.senin.bank_operation.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserService{
-    User save(User user);
+    UserEntity save(UserEntity user);
 
-    User findById(Long id);
+    UserEntity findById(Long id);
 
-    List<User> findAll();
+    List<UserEntity> findAll();
 
-    User update(User user);
+    UserEntity update(UserEntity user);
 
     void deleteById(Long id);
 }

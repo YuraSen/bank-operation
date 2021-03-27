@@ -1,17 +1,17 @@
 package com.senin.bank_operation.service;
 
-import com.senin.bank_operation.dto.Company;
+import com.senin.bank_operation.entity.CompanyEntity;
 
 import java.util.List;
 
 public interface CompanyService {
-    Company save(Company company);
+    CompanyEntity save(CompanyEntity company);
 
-    Company findById(Long id);
+    CompanyEntity findById(Long id);
 
-    List<Company> findAll();
+    List<CompanyEntity> findAll();
 
-    Company update(Company company);
+    CompanyEntity update(CompanyEntity company);
 
     void deleteById(Long id);
 

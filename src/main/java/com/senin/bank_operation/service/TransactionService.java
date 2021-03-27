@@ -1,18 +1,18 @@
 package com.senin.bank_operation.service;
 
 
-import com.senin.bank_operation.dto.Transaction;
+import com.senin.bank_operation.entity.TransactionEntity;
 
 import java.util.List;
 
 public interface TransactionService {
-    Transaction save(Transaction transaction);
+    TransactionEntity save(TransactionEntity transaction);
 
-    Transaction findById(Long id);
+    TransactionEntity findById(Long id);
 
-    List<Transaction> findAll();
+    List<TransactionEntity> findAll();
 
-    Transaction update(Transaction player);
+    TransactionEntity update(TransactionEntity player);
 
     void deleteById(Long id);
 }

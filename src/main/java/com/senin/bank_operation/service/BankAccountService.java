@@ -1,17 +1,17 @@
 package com.senin.bank_operation.service;
 
-import com.senin.bank_operation.dto.BankAccount;
+import com.senin.bank_operation.entity.BankAccountEntity;
 
 import java.util.List;
 
 public interface BankAccountService {
-    BankAccount save(BankAccount bankAccount);
+    BankAccountEntity save(BankAccountEntity bankAccount);
 
-    BankAccount findById(Long id);
+    BankAccountEntity findById(Long id);
 
-    List<BankAccount> findAll();
+    List<BankAccountEntity> findAll();
 
-    BankAccount update(BankAccount bankAccount);
+    BankAccountEntity update(BankAccountEntity bankAccount);
 
     void deleteById(Long id);
 }

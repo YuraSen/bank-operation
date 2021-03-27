@@ -1,13 +1,11 @@
 package com.senin.bank_operation.service.impl;
 
 
-import com.senin.bank_operation.dto.Transaction;
-import com.senin.bank_operation.dto.User;
+import com.senin.bank_operation.entity.UserEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
-import com.senin.bank_operation.repository.TransactionRepository;
 import com.senin.bank_operation.repository.UserRepository;
 import com.senin.bank_operation.service.UserService;
-import com.senin.bank_operation.service.UtilityService;
+import com.senin.bank_operation.service.util.UtilityService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,25 +23,25 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public User save(User user) {
+    public UserEntity save(UserEntity user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User findById(Long id) {
+    public UserEntity findById(Long id) {
         UtilityService.isIdPositive(id);
         return userRepository.findById(id)
                 .orElseThrow(() -> new IncorrectIdRuntimeException(UtilityService.ID_CORRECT));
     }
 
     @Override
-    public List<User> findAll() {
+    public List<UserEntity> findAll() {
         return userRepository.findAll();
     }
 
     @Override
     @Transactional
-    public User update(User user) {
+    public UserEntity update(UserEntity user) {
         return entityManager.merge(user);
     }
 

@@ -28,15 +28,7 @@ public class BankAccountEntity {
     @Column(name = "balance_accout")
     private Double balanceAccount;
 
-    @OneToOne(cascade =  CascadeType.ALL,fetch = FetchType.EAGER, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "first_bank_account", referencedColumnName = "id")
-    private TransactionEntity firstBankAccount;
 
-    @OneToOne(cascade =  CascadeType.ALL,fetch = FetchType.EAGER, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "second_bank_account", referencedColumnName = "id")
-    private TransactionEntity secondBankAccount;
 
     @OneToMany
     private List<TransactionEntity> transactionEntityList;

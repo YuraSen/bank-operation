@@ -1,7 +1,9 @@
 package com.senin.bank_operation.repository;
 
-import com.senin.bank_operation.dto.Company;
+import com.senin.bank_operation.entity.CompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CompanyRepository extends JpaRepository<Company, Long> {
+@Repository
+public interface CompanyRepository extends JpaRepository<CompanyEntity, Long> {
 }

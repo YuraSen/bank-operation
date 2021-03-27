@@ -1,10 +1,10 @@
 package com.senin.bank_operation.service.impl;
 
-import com.senin.bank_operation.dto.Transaction;
+import com.senin.bank_operation.entity.TransactionEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
 import com.senin.bank_operation.repository.TransactionRepository;
 import com.senin.bank_operation.service.TransactionService;
-import com.senin.bank_operation.service.UtilityService;
+import com.senin.bank_operation.service.util.UtilityService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,25 +22,25 @@ public class TransactionServiceImpl implements TransactionService {
     private final TransactionRepository transactionRepository;
 
     @Override
-    public Transaction save(Transaction transaction) {
+    public TransactionEntity save(TransactionEntity transaction) {
         return transactionRepository.save(transaction);
     }
 
     @Override
-    public Transaction findById(Long id) {
+    public TransactionEntity findById(Long id) {
         UtilityService.isIdPositive(id);
         return transactionRepository.findById(id)
                 .orElseThrow(() -> new IncorrectIdRuntimeException(UtilityService.ID_CORRECT));
     }
 
     @Override
-    public List<Transaction> findAll() {
+    public List<TransactionEntity> findAll() {
         return transactionRepository.findAll();
     }
 
     @Override
     @Transactional
-    public Transaction update(Transaction transaction) {
+    public TransactionEntity update(TransactionEntity transaction) {
         return entityManager.merge(transaction);
     }
 

@@ -1,12 +1,10 @@
 package com.senin.bank_operation.service.impl;
 
-import com.senin.bank_operation.dto.Company;
-import com.senin.bank_operation.dto.CompanyShareholders;
+import com.senin.bank_operation.entity.CompanyShareholdersEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
-import com.senin.bank_operation.repository.CompanyRepository;
 import com.senin.bank_operation.repository.CompanyShareholdersRepository;
 import com.senin.bank_operation.service.CompanyShareholdersService;
-import com.senin.bank_operation.service.UtilityService;
+import com.senin.bank_operation.service.util.UtilityService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,25 +22,25 @@ public class CompanyShareholdersServiceImpl implements CompanyShareholdersServic
     private final CompanyShareholdersRepository companyShareholdersRepository;
 
     @Override
-    public CompanyShareholders save(CompanyShareholders companyShareholders) {
+    public CompanyShareholdersEntity save(CompanyShareholdersEntity companyShareholders) {
         return companyShareholdersRepository.save(companyShareholders);
     }
 
     @Override
-    public CompanyShareholders findById(Long id) {
+    public CompanyShareholdersEntity findById(Long id) {
         UtilityService.isIdPositive(id);
         return companyShareholdersRepository.findById(id)
                 .orElseThrow(() -> new IncorrectIdRuntimeException(UtilityService.ID_CORRECT));
     }
 
     @Override
-    public List<CompanyShareholders> findAll() {
+    public List<CompanyShareholdersEntity> findAll() {
         return companyShareholdersRepository.findAll();
     }
 
     @Override
     @Transactional
-    public CompanyShareholders update(CompanyShareholders companyShareholders) {
+    public CompanyShareholdersEntity update(CompanyShareholdersEntity companyShareholders) {
         return entityManager.merge(companyShareholders);
     }
 

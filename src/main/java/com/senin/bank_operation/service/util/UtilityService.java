@@ -1,4 +1,4 @@
-package com.senin.bank_operation.service;
+package com.senin.bank_operation.service.util;
 
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
 

@@ -1,7 +1,9 @@
 package com.senin.bank_operation.repository;
 
-import com.senin.bank_operation.dto.Transaction;
+import com.senin.bank_operation.entity.TransactionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TransactionRepository extends JpaRepository<Transaction, Long> {
+@Repository
+public interface TransactionRepository extends JpaRepository<TransactionEntity, Long> {
 }

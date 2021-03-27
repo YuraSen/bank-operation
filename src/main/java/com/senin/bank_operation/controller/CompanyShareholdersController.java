@@ -1,6 +1,6 @@
 package com.senin.bank_operation.controller;
 
-import com.senin.bank_operation.dto.CompanyShareholders;
+import com.senin.bank_operation.entity.CompanyShareholdersEntity;
 import com.senin.bank_operation.service.CompanyShareholdersService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +15,22 @@ public class CompanyShareholdersController {
     private final CompanyShareholdersService companyShareholdersService;
 
     @GetMapping("/")
-    public List<CompanyShareholders> showAll() {
+    public List<CompanyShareholdersEntity> showAll() {
         return companyShareholdersService.findAll();
     }
 
     @GetMapping("/{id}")
-    public CompanyShareholders showById(@PathVariable("id") Long id) {
+    public CompanyShareholdersEntity showById(@PathVariable("id") Long id) {
         return companyShareholdersService.findById(id);
     }
 
     @PostMapping("/")
-    public CompanyShareholders create(@RequestBody CompanyShareholders companyShareholders) {
+    public CompanyShareholdersEntity create(@RequestBody CompanyShareholdersEntity companyShareholders) {
         return companyShareholdersService.save(companyShareholders);
     }
 
     @PutMapping("/{id}")
-    public CompanyShareholders edit(@RequestBody CompanyShareholders companyShareholders) {
+    public CompanyShareholdersEntity edit(@RequestBody CompanyShareholdersEntity companyShareholders) {
         return companyShareholdersService.update(companyShareholders);
     }
 

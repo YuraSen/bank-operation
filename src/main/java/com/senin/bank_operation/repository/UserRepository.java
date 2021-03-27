@@ -1,8 +1,10 @@
 package com.senin.bank_operation.repository;
 
-import com.senin.bank_operation.dto.User;
+import com.senin.bank_operation.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 }
