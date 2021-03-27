@@ -1,6 +1,6 @@
 package com.senin.bank_operation.controller;
 
-import com.senin.bank_operation.entity.UserEntity;
+import com.senin.bank_operation.dto.UserDTO;
 import com.senin.bank_operation.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +15,23 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/")
-    public List<UserEntity> showAll() {
+    public List<UserDTO> showAll() {
         return userService.findAll();
     }
 
     @GetMapping("/{id}")
-    public UserEntity showById(@PathVariable("id") Long id) {
+    public UserDTO showById(@PathVariable("id") Long id) {
         return userService.findById(id);
     }
 
     @PostMapping("/")
-    public UserEntity create(@RequestBody UserEntity player) {
-        return userService.save(player);
+    public UserDTO create(@RequestBody UserDTO userDTO) {
+        return userService.save(userDTO);
     }
 
     @PutMapping("/{id}")
-    public UserEntity edit(@RequestBody UserEntity player) {
-        return userService.update(player);
+    public UserDTO edit(@RequestBody UserDTO userDTO) {
+        return userService.update(userDTO);
     }
 
     @DeleteMapping("/{id}")

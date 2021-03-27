@@ -54,11 +54,11 @@ public class CompanyShareholdersServiceImpl implements CompanyShareholdersServic
         companyShareholdersRepository.deleteById(id);
     }
 
-    public CompanyShareholdersDTO mapCompanyShareholdersEntityToDTO(CompanyShareholdersEntity companyShareholdersEntity){
+    private CompanyShareholdersDTO mapCompanyShareholdersEntityToDTO(CompanyShareholdersEntity companyShareholdersEntity){
         return modelMapper.map(companyShareholdersEntity, CompanyShareholdersDTO.class);
     }
 
-    public CompanyShareholdersEntity mapCompanyShareholdersDTOToEntity(CompanyShareholdersDTO companyShareholdersDTO){
+    private CompanyShareholdersEntity mapCompanyShareholdersDTOToEntity(CompanyShareholdersDTO companyShareholdersDTO){
         return modelMapper.map(companyShareholdersDTO, CompanyShareholdersEntity.class);
     }
 }

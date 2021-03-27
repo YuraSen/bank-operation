@@ -1,6 +1,6 @@
 package com.senin.bank_operation.controller;
 
-import com.senin.bank_operation.entity.BankAccountEntity;
+import com.senin.bank_operation.dto.BankAccountDTO;
 import com.senin.bank_operation.service.BankAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +15,23 @@ public class BankAccountController {
     private final BankAccountService bankAccountService;
 
     @GetMapping("/")
-    public List<BankAccountEntity> showAll() {
+    public List<BankAccountDTO> showAll() {
         return bankAccountService.findAll();
     }
 
     @GetMapping("/{id}")
-    public BankAccountEntity showById(@PathVariable("id") Long id) {
+    public BankAccountDTO showById(@PathVariable("id") Long id) {
         return bankAccountService.findById(id);
     }
 
     @PostMapping("/")
-    public BankAccountEntity create(@RequestBody BankAccountEntity bankAccount) {
-        return bankAccountService.save(bankAccount);
+    public BankAccountDTO create(@RequestBody BankAccountDTO bankAccountDTO) {
+        return bankAccountService.save(bankAccountDTO);
     }
 
     @PutMapping("/{id}")
-    public BankAccountEntity edit(@RequestBody BankAccountEntity bankAccount) {
-        return bankAccountService.update(bankAccount);
+    public BankAccountDTO edit(@RequestBody BankAccountDTO bankAccountDTO) {
+        return bankAccountService.update(bankAccountDTO);
     }
 
     @PostMapping("/delete/{id}")

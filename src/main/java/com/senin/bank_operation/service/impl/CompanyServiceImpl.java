@@ -55,11 +55,11 @@ public class CompanyServiceImpl implements CompanyService {
         companyRepository.deleteById(id);
     }
 
-    public CompanyDTO mapCompanyEntityToDTO(CompanyEntity companyEntity) {
+    private CompanyDTO mapCompanyEntityToDTO(CompanyEntity companyEntity) {
         return modelMapper.map(companyEntity, CompanyDTO.class);
     }
 
-    public CompanyEntity mapCompanyDTOToEntity(CompanyDTO companyDTO) {
+    private CompanyEntity mapCompanyDTOToEntity(CompanyDTO companyDTO) {
         return modelMapper.map(companyDTO, CompanyEntity.class);
     }
 }

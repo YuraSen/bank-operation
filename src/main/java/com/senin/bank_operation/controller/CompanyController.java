@@ -1,6 +1,6 @@
 package com.senin.bank_operation.controller;
 
-import com.senin.bank_operation.entity.CompanyEntity;
+import com.senin.bank_operation.dto.CompanyDTO;
 import com.senin.bank_operation.service.CompanyService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +15,23 @@ public class CompanyController {
     private final CompanyService companyService;
 
     @GetMapping("/")
-    public List<CompanyEntity> showAll() {
+    public List<CompanyDTO> showAll() {
         return companyService.findAll();
     }
 
     @GetMapping("/{id}")
-    public CompanyEntity showById(@PathVariable("id") Long id) {
+    public CompanyDTO showById(@PathVariable("id") Long id) {
         return companyService.findById(id);
     }
 
     @PostMapping("/")
-    public CompanyEntity create(@RequestBody CompanyEntity company) {
-        return companyService.save(company);
+    public CompanyDTO create(@RequestBody CompanyDTO companyDTO) {
+        return companyService.save(companyDTO);
     }
 
     @PutMapping("/{id}")
-    public CompanyEntity edit(@RequestBody CompanyEntity company) {
-        return companyService.update(company);
+    public CompanyDTO edit(@RequestBody CompanyDTO companyDTO) {
+        return companyService.update(companyDTO);
     }
 
     @DeleteMapping("/{id}")

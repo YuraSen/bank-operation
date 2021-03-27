@@ -54,11 +54,11 @@ public class TransactionServiceImpl implements TransactionService {
         transactionRepository.deleteById(id);
     }
 
-    public TransactionDTO mapTransactionEntityToDTO(TransactionEntity transactionEntity){
+    private TransactionDTO mapTransactionEntityToDTO(TransactionEntity transactionEntity){
         return modelMapper.map(transactionEntity, TransactionDTO.class);
     }
 
-    public TransactionEntity mapTransactionDTOToEntity(TransactionDTO transactionDTO){
+    private TransactionEntity mapTransactionDTOToEntity(TransactionDTO transactionDTO){
         return modelMapper.map(transactionDTO, TransactionEntity.class);
     }
 }

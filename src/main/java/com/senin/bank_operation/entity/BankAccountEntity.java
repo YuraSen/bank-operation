@@ -28,8 +28,6 @@ public class BankAccountEntity {
     @Column(name = "balance_accout")
     private Double balanceAccount;
 
-
-
     @OneToMany
     private List<TransactionEntity> transactionEntityList;
 }

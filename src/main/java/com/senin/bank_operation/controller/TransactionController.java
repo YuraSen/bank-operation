@@ -1,6 +1,6 @@
 package com.senin.bank_operation.controller;
 
-import com.senin.bank_operation.entity.TransactionEntity;
+import com.senin.bank_operation.dto.TransactionDTO;
 import com.senin.bank_operation.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +15,23 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @GetMapping("/")
-    public List<TransactionEntity> showAll() {
+    public List<TransactionDTO> showAll() {
         return transactionService.findAll();
     }
 
     @GetMapping("/{id}")
-    public TransactionEntity showById(@PathVariable("id") Long id) {
+    public TransactionDTO showById(@PathVariable("id") Long id) {
         return transactionService.findById(id);
     }
 
     @PostMapping("/")
-    public TransactionEntity create(@RequestBody TransactionEntity transaction) {
-        return transactionService.save(transaction);
+    public TransactionDTO create(@RequestBody TransactionDTO transactionDTO) {
+        return transactionService.save(transactionDTO);
     }
 
     @PutMapping("/{id}")
-    public TransactionEntity edit(@RequestBody TransactionEntity transaction) {
-        return transactionService.update(transaction);
+    public TransactionDTO edit(@RequestBody TransactionDTO transactionDTO) {
+        return transactionService.update(transactionDTO);
     }
 
     @DeleteMapping("/{id}")
