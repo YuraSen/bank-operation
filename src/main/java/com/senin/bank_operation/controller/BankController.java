@@ -25,8 +25,4 @@ public class BankController {
         return bankService.findById(id);
     }
 
-    @GetMapping("/findUsers/{bankName}")
-    public List<UserDTO> showUsersByBankName(@PathVariable("bankName") String bankName){
-        return bankService.findUsersByBankName(bankName);
-    }
 }

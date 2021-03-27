@@ -1,5 +1,6 @@
 package com.senin.bank_operation.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,4 +31,16 @@ public class BankAccountEntity {
 
     @OneToMany
     private List<TransactionEntity> transactionEntityList;
+
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_bank", referencedColumnName = "id")
+    private BankEntity bank;
+
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usr", referencedColumnName = "id")
+    private UserEntity user;
 }

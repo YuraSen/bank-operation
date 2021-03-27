@@ -6,7 +6,6 @@ import com.senin.bank_operation.entity.UserEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
 import com.senin.bank_operation.repository.UserRepository;
 import com.senin.bank_operation.service.UserService;
-import com.senin.bank_operation.service.util.UserMapper;
 import com.senin.bank_operation.service.util.UtilityService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -25,30 +24,29 @@ public class UserServiceImpl implements UserService {
     @PersistenceContext
     private final EntityManager entityManager;
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
     private ModelMapper modelMapper;
 
     @Override
     public UserDTO save(UserDTO user) {
-        return userMapper.mapUserEntityToDTO(userRepository.save(userMapper.mapUserDTOToEntity(user)));
+        return mapUserEntityToDTO(userRepository.save(mapUserDTOToEntity(user)));
     }
 
     @Override
     public UserDTO findById(Long id) {
         UtilityService.isIdPositive(id);
-        return userMapper.mapUserEntityToDTO(userRepository.findById(id)
+        return mapUserEntityToDTO(userRepository.findById(id)
                 .orElseThrow(() -> new IncorrectIdRuntimeException(UtilityService.ID_CORRECT)));
     }
 
     @Override
     public List<UserDTO> findAll() {
-        return userRepository.findAll().stream().map(userMapper::mapUserEntityToDTO).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(this::mapUserEntityToDTO).collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public UserDTO update(UserDTO user) {
-        return userMapper.mapUserEntityToDTO( entityManager.merge(userMapper.mapUserDTOToEntity(user)));
+        return mapUserEntityToDTO( entityManager.merge(mapUserDTOToEntity(user)));
     }
 
     @Override
@@ -57,4 +55,11 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    public UserDTO mapUserEntityToDTO(UserEntity userEntity){
+        return modelMapper.map(userEntity, UserDTO.class);
+    }
+
+    public UserEntity mapUserDTOToEntity(UserDTO userDTO){
+        return modelMapper.map(userDTO, UserEntity.class);
+    }
 }

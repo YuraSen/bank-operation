@@ -26,8 +26,4 @@ public class UserEntity {
 
     @OneToMany
     private List<BankAccountEntity> bankAccountEntityList;
-
-    @ManyToMany(mappedBy = "userEntity")
-    @JsonIgnore
-    private List<BankEntity> bankEntity;
 }

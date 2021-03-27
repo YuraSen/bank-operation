@@ -3,12 +3,17 @@ VALUES (1, 'Bill');
 INSERT INTO usr
 VALUES (2, 'Yurii');
 
+INSERT INTO bank
+VALUES (1, 'Privat');
+INSERT INTO bank
+VALUES (2, 'Aval');
+
 INSERT INTO bank_account
-VALUES (1, 50000.0, 'PRIVAT');
+VALUES (1, 50000.0, 'PRIVAT',1,2);
 INSERT INTO bank_account
-VALUES (2, 25000.0, 'OCHAD');
+VALUES (2, 25000.0, 'OCHAD',2,1);
 INSERT INTO bank_account
-VALUES (3, 68700.0, 'NATIONAL');
+VALUES (3, 68700.0, 'NATIONAL',2,1);
 
 INSERT INTO company
 VALUES (1, 'MYN');

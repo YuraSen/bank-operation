@@ -17,6 +17,4 @@ public interface BankService {
     BankDTO update(BankDTO bankDTO);
 
     void deleteById(Long id);
-
-    List<BankDTO> findUsersByBankName(UserDTO userDTO);
 }

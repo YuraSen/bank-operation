@@ -1,6 +1,8 @@
 package com.senin.bank_operation.controller;
 
 import com.senin.bank_operation.dto.BankAccountDTO;
+import com.senin.bank_operation.dto.BankDTO;
+import com.senin.bank_operation.dto.UserDTO;
 import com.senin.bank_operation.service.BankAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +39,15 @@ public class BankAccountController {
     @PostMapping("/delete/{id}")
     public void delete(@PathVariable("id") Long id) {
         bankAccountService.deleteById(id);
+    }
+
+    @GetMapping("/findBanks")
+    public List<BankDTO> findBankByUser(@RequestParam String userName) {
+        return bankAccountService.findBankByUser(userName);
+    }
+
+    @GetMapping("/findUsers")
+    public List<UserDTO> findUserByNameBank(@RequestParam String nameBank) {
+        return bankAccountService.findUserByNameBank(nameBank);
     }
 }

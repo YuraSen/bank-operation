@@ -9,5 +9,7 @@ import java.util.List;
 
 @Repository
 public interface BankRepository extends JpaRepository<BankEntity, Long> {
-    List<BankEntity> findBankEntitiesByUserEntity(UserEntity userEntity);
+
 }
+
+

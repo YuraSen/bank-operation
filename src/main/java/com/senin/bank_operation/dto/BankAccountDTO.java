@@ -22,5 +22,9 @@ public class BankAccountDTO {
 
     private TransactionDTO secondBankAccount;
 
+    private BankDTO bank;
+
+    private UserDTO user;
+
     private List<TransactionDTO> transactionDTOList;
 }

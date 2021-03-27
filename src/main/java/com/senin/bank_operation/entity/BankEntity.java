@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,10 +23,5 @@ public class BankEntity implements Serializable {
     @Column(name = "name_bank")
     private String nameBank;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_bank",
-            joinColumns = @JoinColumn(name = "bank_id"),
-            inverseJoinColumns = @JoinColumn(name = "usr_id"))
-    private List<UserEntity> userEntity;
 }
+

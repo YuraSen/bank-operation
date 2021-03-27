@@ -1,6 +1,8 @@
 package com.senin.bank_operation.service.impl;
 
 import com.senin.bank_operation.dto.BankAccountDTO;
+import com.senin.bank_operation.dto.BankDTO;
+import com.senin.bank_operation.dto.UserDTO;
 import com.senin.bank_operation.entity.BankAccountEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
 import com.senin.bank_operation.repository.BankAccountRepository;
@@ -53,6 +55,22 @@ public class BankAccountServiceImpl implements BankAccountService {
     public void deleteById(Long id) {
         UtilityService.isIdPositive(id);
         bankAccountRepository.deleteById(id);
+    }
+
+    @Override
+    public List<UserDTO> findUserByNameBank(String nameBank) {
+        return bankAccountRepository.findBankAccountEntitiesByBank_NameBank(nameBank).stream()
+                .map(this::mapBankAccountEntityToDTO)
+                .map(BankAccountDTO::getUser)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BankDTO> findBankByUser(String userName) {
+        return bankAccountRepository.findBankAccountEntitiesByUser_UserName(userName).stream()
+                .map(this::mapBankAccountEntityToDTO)
+                .map(BankAccountDTO::getBank)
+                .collect(Collectors.toList());
     }
 
     private BankAccountDTO mapBankAccountEntityToDTO(BankAccountEntity bankAccountEntity) {
