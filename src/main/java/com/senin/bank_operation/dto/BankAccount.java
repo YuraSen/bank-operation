@@ -14,7 +14,13 @@ import java.util.List;
 public class BankAccount {
     private Long id;
 
+    private String nameBankAccount;
+
     private Double balanceAccount;
+
+    private String firstBankAccount;
+
+    private String secondBankAccount;
 
     private List<Transaction> transactionList;
 }

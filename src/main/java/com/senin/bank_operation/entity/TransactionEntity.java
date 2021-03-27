@@ -1,4 +1,4 @@
-package com.senin.bank_operation.domain;
+package com.senin.bank_operation.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,20 +6,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "company_shareholers")
-public class CompanyShareholders {
+@Table(name = "transaction")
+public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @OneToMany
-    private List<CompanyEntity> companyEntity;
+
+    @Column(name = "name_transaction")
+    private String nameTransaction;
 }
+

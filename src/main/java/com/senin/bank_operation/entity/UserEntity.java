@@ -1,4 +1,4 @@
-package com.senin.bank_operation.domain;
+package com.senin.bank_operation.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,5 +24,5 @@ public class UserEntity {
     private String userName;
 
     @OneToMany
-    private List<BankAccountEntity> bankAccountEntities;
+    private List<BankAccountEntity> bankAccountEntityList;
 }

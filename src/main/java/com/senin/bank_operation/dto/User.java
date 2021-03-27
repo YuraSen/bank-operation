@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,4 +15,7 @@ public class User {
     private Long id;
 
     private String userName;
+
+    private List<BankAccount> bankAccountList;
+
 }

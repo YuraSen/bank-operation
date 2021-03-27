@@ -12,10 +12,6 @@ import lombok.NoArgsConstructor;
 public class Transaction {
     private Long id;
 
-    private String FirstBankAccount;
-
-    private String SecondBankAccount;
-
     private String nameTransaction;
 
 }
