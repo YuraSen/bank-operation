@@ -1,17 +1,18 @@
 package com.senin.bank_operation.service;
 
+import com.senin.bank_operation.dto.CompanyShareholdersDTO;
 import com.senin.bank_operation.entity.CompanyShareholdersEntity;
 
 import java.util.List;
 
 public interface CompanyShareholdersService{
-    CompanyShareholdersEntity save(CompanyShareholdersEntity companyShareholders);
+    CompanyShareholdersDTO save(CompanyShareholdersDTO companyShareholders);
 
-    CompanyShareholdersEntity findById(Long id);
+    CompanyShareholdersDTO findById(Long id);
 
-    List<CompanyShareholdersEntity> findAll();
+    List<CompanyShareholdersDTO> findAll();
 
-    CompanyShareholdersEntity update(CompanyShareholdersEntity companyShareholders);
+    CompanyShareholdersDTO update(CompanyShareholdersDTO companyShareholders);
 
     void deleteById(Long id);
 }

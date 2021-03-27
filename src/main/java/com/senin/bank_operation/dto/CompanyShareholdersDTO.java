@@ -11,16 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BankAccount {
+public class CompanyShareholdersDTO {
     private Long id;
 
-    private String nameBankAccount;
+    private List<CompanyDTO> companyDTOList;
 
-    private Double balanceAccount;
-
-    private Transaction firstBankAccount;
-
-    private Transaction secondBankAccount;
-
-    private List<Transaction> transactionList;
 }

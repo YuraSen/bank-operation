@@ -5,17 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class CompanyDTO {
     private Long id;
 
-    private String userName;
-
-    private List<BankAccount> bankAccountList;
-
+    private String companyName;
 }
