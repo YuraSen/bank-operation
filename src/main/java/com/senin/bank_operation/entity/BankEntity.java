@@ -1,12 +1,12 @@
 package com.senin.bank_operation.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -14,20 +14,20 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "usr")
-public class UserEntity {
+@Table(name = "bank")
+public class BankEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "name_bank")
+    private String nameBank;
 
-    @OneToMany
-    private List<BankAccountEntity> bankAccountEntityList;
-
-    @ManyToMany(mappedBy = "userEntity")
-    @JsonIgnore
-    private List<BankEntity> bankEntity;
+    @ManyToMany
+    @JoinTable(
+            name = "user_bank",
+            joinColumns = @JoinColumn(name = "bank_id"),
+            inverseJoinColumns = @JoinColumn(name = "usr_id"))
+    private List<UserEntity> userEntity;
 }
