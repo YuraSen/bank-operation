@@ -2,10 +2,13 @@ package com.senin.bank_operation.service.impl;
 
 
 import com.senin.bank_operation.dto.BankDTO;
+import com.senin.bank_operation.dto.UserDTO;
 import com.senin.bank_operation.entity.BankEntity;
+import com.senin.bank_operation.entity.UserEntity;
 import com.senin.bank_operation.exception.IncorrectIdRuntimeException;
 import com.senin.bank_operation.repository.BankRepository;
 import com.senin.bank_operation.service.BankService;
+import com.senin.bank_operation.service.util.UserMapper;
 import com.senin.bank_operation.service.util.UtilityService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,6 +25,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BankServiceImpl implements BankService {
     private final BankRepository bankRepository;
+    private final UserMapper userMapper;
     private ModelMapper modelMapper;
 
     @PersistenceContext
@@ -54,6 +58,13 @@ public class BankServiceImpl implements BankService {
     public void deleteById(Long id) {
         UtilityService.isIdPositive(id);
         bankRepository.deleteById(id);
+    }
+
+    @Override
+    public List<BankDTO> findUsersByBankName(UserDTO userDTO){
+        return bankRepository.findBankEntitiesByUserEntity(userMapper.mapUserDTOToEntity(userDTO)).stream().
+                map(this::mapBankEntityToDTO)
+                .collect(Collectors.toList());
     }
 
     private BankDTO mapBankEntityToDTO(BankEntity bankEntity) {

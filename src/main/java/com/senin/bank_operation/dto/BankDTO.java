@@ -13,5 +13,4 @@ public class BankDTO {
     private Long id;
 
     private String nameBank;
-
 }

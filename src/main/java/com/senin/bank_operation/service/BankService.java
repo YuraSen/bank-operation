@@ -1,6 +1,9 @@
 package com.senin.bank_operation.service;
 
 import com.senin.bank_operation.dto.BankDTO;
+import com.senin.bank_operation.dto.UserDTO;
+import com.senin.bank_operation.entity.BankEntity;
+import com.senin.bank_operation.entity.UserEntity;
 
 import java.util.List;
 
@@ -14,4 +17,6 @@ public interface BankService {
     BankDTO update(BankDTO bankDTO);
 
     void deleteById(Long id);
+
+    List<BankDTO> findUsersByBankName(UserDTO userDTO);
 }
